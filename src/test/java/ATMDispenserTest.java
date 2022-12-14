@@ -25,7 +25,7 @@ class ATMDispenserTest {
         ATMDispenser atm = new ATMDispenser();
         atm.getMoney(50);
 
-        assertEquals("Here is 1x50€\n", outContent.toString());
+        assertEquals("Here is 1x50€\r\n", outContent.toString());
     }
 
     @Test
@@ -33,7 +33,7 @@ class ATMDispenserTest {
         ATMDispenser atm = new ATMDispenser();
         atm.getMoney(20);
 
-        assertEquals("Here is 1x20€\n", outContent.toString());
+        assertEquals("Here is 1x20€\r\n", outContent.toString());
     }
 
     @Test
@@ -41,7 +41,7 @@ class ATMDispenserTest {
         ATMDispenser atm = new ATMDispenser();
         atm.getMoney(3);
 
-        assertEquals("Here is 1x3€\n", outContent.toString());
+        assertEquals("Here is 1x3€\r\n", outContent.toString());
     }
 
     @Test
@@ -49,8 +49,8 @@ class ATMDispenserTest {
         ATMDispenser atm = new ATMDispenser();
         atm.getMoney(2592);
 
-        assertEquals("Here is 51x50€\n"
-            + "Here is 2x20€\n"
-            + "The remainder is going to the trash! 2€ spoiled.", outContent.toString());
+        assertEquals("Here is 51x50€\r\n"
+            + "Here is 2x20€\r\n"
+            + "The remainder is going to the trash! 2€ spoiled.\r\n", outContent.toString());
     }
 }
