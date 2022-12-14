@@ -31,17 +31,17 @@ class ATMDispenserTest {
     @Test
     void test_with_20_euros() {
         ATMDispenser atm = new ATMDispenser();
-        atm.getMoney(20);
+        atm.getMoney(40);
 
-        assertEquals("Here is 1x20€\r\n", outContent.toString());
+        assertEquals("I give you 2 bills of 20€\r\n", outContent.toString());
     }
 
     @Test
     void test_with_3_euros() {
         ATMDispenser atm = new ATMDispenser();
-        atm.getMoney(3);
+        atm.getMoney(9);
 
-        assertEquals("Here is 1x3€\r\n", outContent.toString());
+        assertEquals("3 special coins of 3€ for you\r\n", outContent.toString());
     }
 
     @Test
@@ -50,7 +50,7 @@ class ATMDispenserTest {
         atm.getMoney(2592);
 
         assertEquals("Here is 51x50€\r\n"
-            + "Here is 2x20€\r\n"
+            + "I give you 2 bills of 20€\r\n"
             + "The remainder is going to the trash! 2€ spoiled.\r\n", outContent.toString());
     }
 }

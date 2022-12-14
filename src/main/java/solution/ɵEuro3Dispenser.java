@@ -8,7 +8,7 @@ public class ɵEuro3Dispenser extends ɵBaseDispenser {
             int coinNumber = amount / 3;
             int remainder = amount % 3;
 
-            System.out.println("Here is " + coinNumber + "x3€");
+            System.out.println(coinNumber + " special coins of 3€ for you");
 
             super.dispense(remainder);
         } else {

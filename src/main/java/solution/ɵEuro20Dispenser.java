@@ -8,7 +8,7 @@ public class ɵEuro20Dispenser extends ɵBaseDispenser {
             int billNumber = amount / 20;
             int remainder = amount % 20;
 
-            System.out.println("Here is " + billNumber + "x20€");
+            System.out.println("I give you " + billNumber + " bills of 20€");
 
             super.dispense(remainder);
         } else {
