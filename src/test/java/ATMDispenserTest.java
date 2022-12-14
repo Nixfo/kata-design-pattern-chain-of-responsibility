@@ -1,6 +1,4 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,14 +10,38 @@ class ATMDispenserTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
-    @Before
+    @BeforeEach
     void setUpStreams() {
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    @AfterEach
     void restoreStreams() {
         System.setOut(originalOut);
+    }
+
+    @Test
+    void test_with_50_euros() {
+        ATMDispenser atm = new ATMDispenser();
+        atm.getMoney(50);
+
+        assertEquals("Here is 1x50€\n", outContent.toString());
+    }
+
+    @Test
+    void test_with_20_euros() {
+        ATMDispenser atm = new ATMDispenser();
+        atm.getMoney(20);
+
+        assertEquals("Here is 1x20€\n", outContent.toString());
+    }
+
+    @Test
+    void test_with_3_euros() {
+        ATMDispenser atm = new ATMDispenser();
+        atm.getMoney(3);
+
+        assertEquals("Here is 1x3€\n", outContent.toString());
     }
 
     @Test
